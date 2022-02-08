@@ -1,12 +1,9 @@
-<!--https://docs.google.com/forms/d/e/1FAIpQLSdW1rSs_JjaMiZU6jxIRlMnE6fip_jkbKfUWNSg9StK4dmpcg/formresponse--!>
-
-<!-- https://docs.google.com/forms/d/e/1FAIpQLSfq8T4r9krErmL8NPU1C9ke-Xgh5TYaSJkuCoAXlS4RDbzquw/viewform --!>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     
-    <title>COVID19 - Medical Kit Suppliers</title>
+    <title>100X.VC Investor Summit 2022</title>
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--fonts -->
@@ -116,218 +113,33 @@
     }
 
   </style>
-  <script>
-
-    // defaults
-    var categories = ['Govt Hospital', 'Charitable Trust', 'Pvt Hospital', 'Other'];
-    var states = [
-      "Jammu", "Kashmir", "Ladakh", "HP", "Uttarakhand", "Punjab", "Haryana", "UP", "Rajasthan", "Delhi", "Bihar", "Jharkhand", "Assam", "Nagaland", "Meghalaya", "Tripura", "Arunachal", "Manipur", "Mizoram", "Sikkim", "Odisha", "West", "MP", "Gujarat", "Maharashtra", "Chattisgarh", "Tamil", "Kerala", "Karnataka", "Telangana", "Andhra", "Andaman", "Lakshadweep", "Puducherry", "Chandigarh", "Goa","Daman"]; 
-var fundingOpts = ['No Funding Required', '50% Funding Required', 'Full Funding Required'];
-    var supplied_items = ['PPE kit as per WHO standard', 'N95', 'KN95', 'COVID Testing kit', 'Ventilators'];
-    var yesno = ["Yes", "No"];
-    var checkboxes = ["PPE kit as per WHO standard", "N95", "KN95", "COVID Testing kit", "Ventilators"];
-
-    var SubmitForm = function(data){
-      var orgName = encodeURIComponent(data.orgName);
-      var pocName = encodeURIComponent(data.pocName);
-      var pocNumber = encodeURIComponent(data.pocNumber);
-      var designation = encodeURIComponent(data.designation);
-      var pocEmail = encodeURIComponent(data.pocEmail);
-      var officeaddress = encodeURIComponent(data.officeaddress);
-      var supplyaddress = encodeURIComponent(data.supplyaddress);
-      var proposal = encodeURIComponent(data.proposal);
-      var maxquantity = encodeURIComponent(data.maxquantity);
-      var yesNo = encodeURIComponent(data.yesno);
-      var data = {
-      'entry.1885986903': orgName,
-      'entry.367181357': pocName,
-      'entry.213100973': pocNumber,
-      'entry.213200973': pocEmail,
-      'entry.1000444119': designation, 
-      'entry.213300973': officeaddress,
-      'entry.213400973': supplyaddress,
-      'entry.213500973': proposal,
-      'entry.213600973': maxquantity,
-      };
-
-
-      var OrgEnt = "entry.597999226";
-      var NameEnt = "entry.1228614806";
-      var NumEnt = "entry.1684921892";
-      var EmailEnt = "entry.1880794577";
-      var DesEnt = "entry.1961322838";
-      var OffEnt = "entry.84381067";
-      var SupEnt = "entry.856330152";
-      var ProEnt = "entry.921047170";
-      var QuaEnt = "entry.1766431238";
-      var IndiaEnt = "entry.609750623";
-
-      var checkedStrings = getCheckedStrings();
-      console.log(checkedStrings);
-      var dirtydata = ""
-      dirtydata += OrgEnt + "=" + orgName + "&";
-      dirtydata += NameEnt + "=" + pocName + "&";
-      dirtydata += NumEnt + "=" + pocNumber + "&";
-      dirtydata += EmailEnt + "=" + pocEmail + "&";
-      dirtydata += DesEnt + "=" + designation + "&";
-      dirtydata += OffEnt + "=" + officeaddress + "&";
-      dirtydata += SupEnt + "=" + supplyaddress;
-      dirtydata += checkedStrings + "&";
-      dirtydata += ProEnt + "=" + proposal + "&";
-      dirtydata += QuaEnt + "=" + maxquantity + "&";
-      dirtydata += IndiaEnt + "=" + yesNo;
-      console.log(dirtydata);
-      // var url = 'https://docs.google.com/forms/d/e/1FAIpQLSfq8T4r9krErmL8NPU1C9ke-Xgh5TYaSJkuCoAXlS4RDbzquw/formResponse'
-      var url = 'https://docs.google.com/forms/u/1/d/e/1FAIpQLSdW1rSs_JjaMiZU6jxIRlMnE6fip_jkbKfUWNSg9StK4dmpcg/formResponse';
-      postData(url,dirtydata)
-      Swal.fire({
-        title: 'Success!',
-        text: 'Thank you for sharing the details. Our team will reach out to you soon.',
-        icon: 'success',
-        confirmButtonText: 'OK'
-      }).then(function(){
-        location.reload();
-      });
-
-    };
-
-    function postData(url,data){
-
-         $.ajax({
-           beforeSend: function(xhrObj){
-        },
-                    url: url,
-                    data: data,
-                    type: 'POST',
-                    dataType: 'text/html'
-                });
-
-    }
-
-    function createSelectElem(arr, id){
-      var $select = $("#"+id)
-      arr.forEach(function(val){ 
-        $select.append('<option value=\''+val+'\'>'+val+'</option>');
-
-      }); 
-    }
-
-    function getCheckedStrings() {
-      var cbs = document.getElementsByName("whatsupply");
-      var answer = "";
-      var element_val = "entry.1717342392";
-      for(var i=0; i<cbs.length; i++) {
-        if(cbs[i].checked)
-          answer = answer + '&'+element_val+"="+encodeURIComponent(cbs[i].value);
-      }
-      return answer;
-    }
-
-    function createCheckElem(arr, id){
-      var $select = $("#"+id)
-      arr.forEach(function(val){ 
-        $select.append('<input type = "checkbox" name="whatsupply" value="' + val + '"> <span class="checkbox-label">' + val + '</span><br>');
-
-      }); 
-    }
-
-  $( document ).ready(function() {
-    createSelectElem(yesno, 'yesno');
-    createCheckElem(checkboxes, 'checkfieldset');
-
-    $('#mainForm').submit(function(e) {
-      
-       e.preventDefault();
-      var values = $(this).serializeArray();
-      console.log($(this).serialize());
-      var valueDict = {};
-
-      values.forEach(function(entry) {
-        valueDict[entry.name] = entry.value;
-      });
-      
-      console.log(valueDict);
-
-      SubmitForm(valueDict);
-
-    });
-  });
-
-  </script>
   <body>
-
     <div class="container">
       <div class="col-ld-4">
-        <center><img src="../logo-min.png"/></center>
+        <!-- <center><img src="../logo-min.png"/></center> -->
       </div>
       <div class="col-ld-4">
         <div class="container">
-          
-          <h1 style="font-family:Oswald;color:#ED1F24;">COVID19 - Medical Kit Supplier</h1>
-
-          <form id="mainForm">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Organization Name</label>
-              <input type="text" class="form-control text-box" name="orgName"  aria-describedby="emailHelp" placeholder="e.g. XYZ Hospital" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Contact Person Name</label>
-              <input type="text" class="form-control text-box" name="pocName"  aria-describedby="emailHelp" placeholder="e.g. John Doe" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Contact Person Phone Number</label>
-              <input type="text" class="form-control text-box" pattern="^[0-9]{10}$" name="pocNumber" aria-describedby="emailHelp" placeholder="e.g. 9821372343" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            <div class="form-group">
-              <label for="exampleInputEmail1">Contact Person Email</label>
-              <input type="text" class="form-control text-box" name="pocEmail"  aria-describedby="emailHelp" pattern="^(.+)@(.+)$" placeholder="e.g. john@Doe.org" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Designation of the Contact Person?</label>
-              <input type="text" class="form-control text-box"  name="designation"  aria-describedby="emailHelp" placeholder="e.g. CTO" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Office Address</label>
-              <input type="text" class="form-control text-box" name="officeaddress"  aria-describedby="emailHelp" placeholder="Enter Full Postal Address" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Supply Location Address</label>
-              <input type="text" class="form-control text-box" name="supplyaddress"  aria-describedby="emailHelp" placeholder="Enter Full Postal Address" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="checkfieldset">What All Items Can You Supply</label>
-             <fieldset name="checkfieldset" id="checkfieldset">
-             </fieldset>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Proposal Details to Be Shared here..</label>
-              <input type="text" class="form-control text-box" name="proposal"  aria-describedby="emailHelp" placeholder="Enter your Proposal" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Maximum Quantity that you can supply every week? (Items that you have selected above)</label>
-              <input type="text" class="form-control text-box" name="maxquantity"  aria-describedby="emailHelp" placeholder="100 N95 Masks" required>
-             <!--small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small-->
-            </div>
-             <div class="form-group">
-              <label for="exampleFormControlSelect1" class="dropdownlabel">Can You Deliver Across India?</label>
-              <select class="form-control dropdown" name="yesno" id="yesno"></select>
-            </div>
-            <button type="submit" style="text-align:center;margin-top:3%;" class="btn btn-block btn-danger btn-lg">Submit</button>
-           </form>
-
+          <u style="text-decoration-color:#ED1F24"><h1 style="font-family:Oswald;color:#ED1F24;">100X.VC Investor Summit 2022</h1></u><br>
         </div>
-
+        <div class="container">
+          <p>
+          Think 100X, Think Business.<br><br>
+          On 10th March 2022, in Mumbai, we’re going to host our first annual 100X Investor Summit. This will give delegates
+          unique access to the tech, entrepreneurs and investors of India.  Do not think of this event as a vanity parade,
+          100X invite means business. We will deep dive into booming tech, trends & sectors that will help discover unicorns.
+          Get an opportunity to meet the hottest 100X startups while you listen to massively successful VC thought leaders
+          from the startup world.<br><br>
+          Join 100X mission of improving access to early-stage capital, educating investors and building an India focused
+          startup community. Let’s build the best innovation ecosystem in India together.<br><br>
+          This summit is designed to inspire exponential thinking.<br><br>
+          Register Below<br>
+          </p>
+        </div>
       </div>
-      <div class="col-ld-4"></div>
+      <div class="col-ld-4">
+        <div data-tf-widget="URog1nC6" data-tf-iframe-props="title=100X.VC Investor Summit 2022" data-tf-medium="snippet" style="width:100%;height:400px;"></div><script src="//embed.typeform.com/next/embed.js"></script>
+      </div>
 
     </div>
   
