@@ -1,0 +1,92 @@
+html {
+  font-size: 16px;
+}
+
+label{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+body{
+  background: #f8f9fa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+  background-color: #ED1F24;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-lg {
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn {
+  display:inline-block;
+  float:left;
+  width:auto;
+  font-weight:400;
+  text-align:center;
+  vertical-align:middle;
+
+}
+
+.checkbox-label {
+  font-size:0.75em;
+}
+
+.text-box {
+  background: inherit;
+  color: #000000;
+  border: none;
+  border-top: none;
+  border-bottom: 2px solid #434343;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  max-width: 100% !important;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.dropdown {
+  width:auto !important;
+}
+
+.dropdownlabel {
+  float:left;
+  margin-right: 0.3em;
+}
+
+img {
+  width:20%;
+}
+
+@media only screen and (max-width: 600px) {
+  footer {
+    font-size:0.7em;
+  }
+  body {
+    font-size: 15px;
+  }
+  .dropdown {
+    float:right;
+  }
+  .dropdownlabel {
+    margin-right:0px;
+  }
+  img {
+    width:25%;
+  }
+}
+
